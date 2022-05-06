@@ -30,43 +30,43 @@ steps:
 
 
 
-  - task: DotNetCoreCLI@2  
-    displayName: 'Create NuGet package'
-    inputs:
-      command: 'pack'
-      packagesToPack: '/NuGet/Microcharts.Forms.nuspec'
-      versioningScheme: byEnvVar
-      #versionEnvVar: 'GitVersion.SemVer'
-      packDirectory: '$(Build.ArtifactStagingDirectory)'
-      #nobuild: true
-      includesource: true
-      versionEnvVar: MyVersion
-      buildProperties: 'SymbolPackageFormat=snupkg'
+- task: DotNetCoreCLI@2  
+  displayName: 'Create NuGet package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '/NuGet/Microcharts.Forms.nuspec'
+    versioningScheme: byEnvVar
+    #versionEnvVar: 'GitVersion.SemVer'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
+    #nobuild: true
+    includesource: true
+    versionEnvVar: MyVersion
+    buildProperties: 'SymbolPackageFormat=snupkg'
 
-  - task: DotNetCoreCLI@2
-    displayName: 'Create BD.Docstore.Mobile NuGet package'
-    inputs:
-      command: 'pack'
-      packagesToPack: '/NuGet/Microcharts.Core.nuspec'
-      versioningScheme: byEnvVar
-      versionEnvVar: MyVersion
-      #versionEnvVar: 'GitVersion.SemVer'
-      packDirectory: '$(Build.ArtifactStagingDirectory)'
-      #nobuild: true
-      includesource: true
-      buildProperties: 'SymbolPackageFormat=snupkg'
-
-
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+- task: DotNetCoreCLI@2
+  displayName: 'Create BD.Docstore.Mobile NuGet package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '/NuGet/Microcharts.Core.nuspec'
+    versioningScheme: byEnvVar
+    versionEnvVar: MyVersion
+    #versionEnvVar: 'GitVersion.SemVer'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
+    #nobuild: true
+    includesource: true
+    buildProperties: 'SymbolPackageFormat=snupkg'
 
 
-  - task: NuGetCommand@2
-    displayName: "Push to Nuget feed"
-    inputs:
-      command: 'push'
-      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-      nuGetFeedType: 'internal'
-      publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
+
+- task: NuGetCommand@2
+  displayName: "Push to Nuget feed"
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
 
