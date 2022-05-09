@@ -27,7 +27,7 @@ steps:
     updateAssemblyInfo: false
     #https://github.com/GitTools/GitVersion/issues/2225
 
-- task: DotNetCoreCLI@2  
+- task: NuGetCommand@2  
   displayName: 'Create NuGet package'
   inputs:
     command: 'pack'
