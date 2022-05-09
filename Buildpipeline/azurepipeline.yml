@@ -31,7 +31,7 @@ steps:
   displayName: 'Create NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: 'NuGet/Microcharts.Forms.nuspec'
+    packagesToPack: '**/Microcharts.Forms.nuspec'
     versioningScheme: byEnvVar
     #versionEnvVar: 'GitVersion.SemVer'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
