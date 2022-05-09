@@ -1,3 +1,4 @@
+
 resources:
   - repo: self
     clean: true
@@ -27,6 +28,8 @@ steps:
     updateAssemblyInfo: false
     #https://github.com/GitTools/GitVersion/issues/2225
 
+- task: NuGetToolInstaller@1
+
 - task: DotNetCoreCLI@2  
   displayName: 'Create Forms NuGet package'
   inputs:
@@ -40,7 +43,7 @@ steps:
     #versionEnvVar: MyVersion
     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: DotNetCoreCLI@2
+- task: XamarinAndroid@1
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
@@ -65,5 +68,5 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    #publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
+    publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
 
