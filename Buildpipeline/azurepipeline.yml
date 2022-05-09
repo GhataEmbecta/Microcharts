@@ -28,29 +28,29 @@ steps:
     #https://github.com/GitTools/GitVersion/issues/2225
 
 - task: NuGetCommand@2  
-  displayName: 'Create NuGet package'
+  displayName: 'Create Forms NuGet package'
   inputs:
     command: 'pack'
     packagesToPack: '**/Microcharts.Forms.nuspec'
-    versioningScheme: byEnvVar
+    #versioningScheme: byEnvVar
     #versionEnvVar: 'GitVersion.SemVer'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
     #nobuild: true
-    includesource: true
-    versionEnvVar: MyVersion
+    #includesource: true
+    #versionEnvVar: MyVersion
     buildProperties: 'SymbolPackageFormat=snupkg'
 
 - task: NuGetCommand@2
-  displayName: 'Create BD.Docstore.Mobile NuGet package'
+  displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
     packagesToPack: '**/Microcharts.Core.nuspec'
-    versioningScheme: byEnvVar
-    versionEnvVar: MyVersion
+    #versioningScheme: byEnvVar
+    #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
     #nobuild: true
-    includesource: true
+    #includesource: true
     buildProperties: 'SymbolPackageFormat=snupkg'
 
 
@@ -65,5 +65,5 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
+    #publishVstsFeed: '07581f72-b7dd-40bc-8318-ae6650290111'
 
