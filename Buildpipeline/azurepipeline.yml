@@ -27,14 +27,11 @@ steps:
     updateAssemblyInfo: false
     #https://github.com/GitTools/GitVersion/issues/2225
 
-
-
-
 - task: DotNetCoreCLI@2  
   displayName: 'Create NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: '/NuGet/Microcharts.Forms.nuspec'
+    packagesToPack: 'NuGet/Microcharts.Forms.nuspec'
     versioningScheme: byEnvVar
     #versionEnvVar: 'GitVersion.SemVer'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
