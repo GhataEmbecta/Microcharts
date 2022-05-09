@@ -44,7 +44,7 @@ steps:
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: '**/Microcharts.Core.nuspec'
+    packagesToPack: '**/Microcharts.Forms.csproj'
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
