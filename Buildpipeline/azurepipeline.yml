@@ -40,11 +40,11 @@ steps:
     versionEnvVar: MyVersion
     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: 'Create BD.Docstore.Mobile NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: '/NuGet/Microcharts.Core.nuspec'
+    packagesToPack: '**/Microcharts.Core.nuspec'
     versioningScheme: byEnvVar
     versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
