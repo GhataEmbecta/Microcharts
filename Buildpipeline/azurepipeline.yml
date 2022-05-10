@@ -46,8 +46,8 @@ steps:
     restoreDirectory: '../../packages/'
 
 - task: NuGetCommand@2
-    displayName: "Nuget package"
-    inputs:
+  displayName: "Nuget package"
+  inputs:
       command: 'pack'
       packagesToPack: '**/Microcharts.Core.nuspec'
       #configuration: 'Release'
