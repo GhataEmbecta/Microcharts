@@ -51,6 +51,8 @@ steps:
       command: 'pack'
       packagesToPack: '**/Microcharts.Core.nuspec'
       #configuration: 'Release'
+      packDirectory: '$(Build.ArtifactStagingDirectory)'
+      buildProperties: 'SymbolPackageFormat=snupkg'
 
 - task: DotNetCoreCLI@2
   displayName: "Build BD.Common.Mobile"
