@@ -46,7 +46,7 @@ steps:
     restoreDirectory: '../../packages/'
 
 - task: NuGetCommand@2
-    displayName: "Create BD.Common.Mobile Nuget package"
+    displayName: "Nuget package"
     inputs:
       command: 'pack'
       packagesToPack: '**/Microcharts.Core.nuspec'
