@@ -46,7 +46,7 @@ steps:
 - task: XamarinAndroid@1
   displayName: 'Create Core NuGet package'
   inputs:
-    command: 'pack'
+    
     packagesToPack: '**/*droid*.csproj'
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
