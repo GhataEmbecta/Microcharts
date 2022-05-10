@@ -29,13 +29,13 @@ steps:
     #https://github.com/GitTools/GitVersion/issues/2225
 
 
-- task: DotNetCoreCLI@2  
-  displayName: 'Create Forms NuGet package'
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/Microcharts.Forms.csproj'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
-    buildProperties: 'SymbolPackageFormat=snupkg'
+# - task: DotNetCoreCLI@2  
+#   displayName: 'Create Forms NuGet package'
+#   inputs:
+#     command: 'pack'
+#     packagesToPack: '**/Microcharts.Forms.csproj'
+#     packDirectory: '$(Build.ArtifactStagingDirectory)'
+#     buildProperties: 'SymbolPackageFormat=snupkg'
 
 
 - task: DotNetCoreCLI@2
@@ -46,6 +46,7 @@ steps:
     packDirectory: '$(Build.ArtifactStagingDirectory)'
     buildProperties: 'SymbolPackageFormat=snupkg'
     nobuild: true
+    includesource: true
 
 - task: PublishBuildArtifacts@1
   inputs:
