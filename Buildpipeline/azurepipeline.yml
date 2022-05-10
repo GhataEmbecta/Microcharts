@@ -41,11 +41,10 @@ steps:
 - task: XamarinAndroid@1
   displayName: 'Create Core NuGet package'
   inputs:
-    #command: 'pack'
+    
     projectFile: '**/Microcharts.Droid.csproj'
     outputDirectory: '$(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
     configuration: '$(BuildConfiguration)'
-    #buildProperties: 'SymbolPackageFormat=snupkg'
     clean: true
 
 - task: PublishBuildArtifacts@1
