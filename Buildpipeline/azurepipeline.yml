@@ -47,14 +47,14 @@ steps:
   displayName: 'Create Core NuGet package'
   inputs:
     
-    packagesToPack: '**/*droid*.csproj'
+    projectFile: '**/*droid*.csproj'
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
+    outputDirectory: '$(Build.ArtifactStagingDirectory)'
     #nobuild: true
     #includesource: true
-    buildProperties: 'SymbolPackageFormat=snupkg'
+    #buildProperties: 'SymbolPackageFormat=snupkg'
 
 
 - task: PublishBuildArtifacts@1
