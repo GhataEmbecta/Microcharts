@@ -47,7 +47,7 @@ steps:
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: 'Sources/Microcharts.Droid/Microcharts.Droid.csproj'
+    packagesToPack: '/Sources/Microcharts.Droid/Microcharts.Droid.csproj'
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
