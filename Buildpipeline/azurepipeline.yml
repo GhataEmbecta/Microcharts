@@ -37,9 +37,15 @@ steps:
 #     packDirectory: '$(Build.ArtifactStagingDirectory)'
 #     buildProperties: 'SymbolPackageFormat=snupkg'
 
+- task: DotNetCoreCLI@2
+  displayName: "Restore Core Nuget package"
+  inputs:
+    command: 'restore'
+    projects: '**/Microcharts.Droid.csproj'
+    restoreDirectory: '../../packages/'
 
 - task: XamarinAndroid@1
-  displayName: 'Create Core NuGet package'
+  displayName: 'Build Core NuGet package'
   inputs:
     
     projectFile: '**/Microcharts.Droid.csproj'
