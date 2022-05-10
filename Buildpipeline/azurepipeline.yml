@@ -45,6 +45,13 @@ steps:
     projects: '**/Microcharts.Droid.csproj'
     restoreDirectory: '../../packages/'
 
+- task: NuGetCommand@2
+    displayName: "Create BD.Common.Mobile Nuget package"
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/Microcharts.Core.nuspec'
+      configuration: 'Release'
+
 - task: DotNetCoreCLI@2
   displayName: "Build BD.Common.Mobile"
   inputs:
