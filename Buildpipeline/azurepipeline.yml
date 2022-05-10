@@ -43,7 +43,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/Microcharts.Droid.csproj'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
     #buildProperties: 'SymbolPackageFormat=snupkg'
 
 
