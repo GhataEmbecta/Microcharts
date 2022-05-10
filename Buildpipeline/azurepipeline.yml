@@ -28,45 +28,22 @@ steps:
     updateAssemblyInfo: false
     #https://github.com/GitTools/GitVersion/issues/2225
 
-- task: NuGetToolInstaller@1
 
 # - task: DotNetCoreCLI@2  
 #   displayName: 'Create Forms NuGet package'
 #   inputs:
 #     command: 'pack'
 #     packagesToPack: '**/Microcharts.Forms.csproj'
-#     #versioningScheme: byEnvVar
-#     #versionEnvVar: 'GitVersion.SemVer'
 #     packDirectory: '$(Build.ArtifactStagingDirectory)'
-#     #nobuild: true
-#     #includesource: true
-#     #versionEnvVar: MyVersion
 #     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: DotNetCoreCLI@2  
-  displayName: 'Create Forms NuGet package'
-  inputs:
-    command: 'build'
-    packagesToPack: '**/Microcharts.Droid.csproj'
-    #versioningScheme: byEnvVar
-    #versionEnvVar: 'GitVersion.SemVer'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
-    #nobuild: true
-    #includesource: true
-    #versionEnvVar: MyVersion
-    #buildProperties: 'SymbolPackageFormat=snupkg'
 
 - task: NuGetCommand@2 
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
     packagesToPack: '**/Microcharts.Droid.csproj'
-    #versioningScheme: byEnvVar
-    #versionEnvVar: MyVersion
-    #versionEnvVar: 'GitVersion.SemVer'
     packDestination: '$(Build.ArtifactStagingDirectory)'
-    #nobuild: true
-    #includesource: true
     #buildProperties: 'SymbolPackageFormat=snupkg'
 
 
