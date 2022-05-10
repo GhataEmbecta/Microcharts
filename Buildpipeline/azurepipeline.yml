@@ -43,11 +43,11 @@ steps:
     #versionEnvVar: MyVersion
     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: XamarinAndroid@1
+- task: NuGetCommand@2
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
-    packagesToPack: '/Sources/Microcharts.Droid/Microcharts.Droid.csproj'
+    packagesToPack: '**/Microcharts.Droid.csproj'
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
