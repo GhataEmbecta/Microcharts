@@ -43,7 +43,7 @@ steps:
 #     #versionEnvVar: MyVersion
 #     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: DotNetCoreCLI@2 
+- task: NuGetCommand@2 
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
@@ -51,10 +51,10 @@ steps:
     #versioningScheme: byEnvVar
     #versionEnvVar: MyVersion
     #versionEnvVar: 'GitVersion.SemVer'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
     #nobuild: true
     #includesource: true
-    buildProperties: 'SymbolPackageFormat=snupkg'
+    #buildProperties: 'SymbolPackageFormat=snupkg'
 
 
 - task: PublishBuildArtifacts@1
