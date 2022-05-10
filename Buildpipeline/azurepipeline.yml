@@ -38,7 +38,7 @@ steps:
 #     buildProperties: 'SymbolPackageFormat=snupkg'
 
 
-- task: NuGetCommand@2 
+- task: DotNetCoreCLI@2
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
