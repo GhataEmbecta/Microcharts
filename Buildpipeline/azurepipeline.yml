@@ -2,7 +2,7 @@
 resources:
   - repo: self
     clean: true
-    fetchDepth: 1
+    
 
 trigger:
 - PBI-44356
@@ -28,6 +28,7 @@ steps:
     updateAssemblyInfo: false
     #https://github.com/GitTools/GitVersion/issues/2225
 
+- task: NuGetToolInstaller@1
 
 # - task: DotNetCoreCLI@2  
 #   displayName: 'Create Forms NuGet package'
@@ -43,6 +44,13 @@ steps:
     command: 'restore'
     projects: '**/Microcharts.Droid.csproj'
     restoreDirectory: '../../packages/'
+
+- task: DotNetCoreCLI@2
+  displayName: "Build BD.Common.Mobile"
+  inputs:
+    command: 'build'
+    projects: '**/Microcharts.Droid.csproj'
+    arguments: '--configuration Release'
 
 - task: XamarinAndroid@1
   displayName: 'Build Core NuGet package'
