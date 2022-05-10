@@ -50,7 +50,7 @@ steps:
     inputs:
       command: 'pack'
       packagesToPack: '**/Microcharts.Core.nuspec'
-      configuration: 'Release'
+      #configuration: 'Release'
 
 - task: DotNetCoreCLI@2
   displayName: "Build BD.Common.Mobile"
