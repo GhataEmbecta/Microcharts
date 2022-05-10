@@ -43,7 +43,7 @@ steps:
     #versionEnvVar: MyVersion
     buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: NuGetCommand@2
+- task: XamarinAndroid@1
   displayName: 'Create Core NuGet package'
   inputs:
     command: 'pack'
