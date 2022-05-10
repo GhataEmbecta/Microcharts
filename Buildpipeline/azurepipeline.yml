@@ -38,15 +38,15 @@ steps:
 #     buildProperties: 'SymbolPackageFormat=snupkg'
 
 
-- task: DotNetCoreCLI@2
+- task: XamarinAndroid@1
   displayName: 'Create Core NuGet package'
   inputs:
-    command: 'pack'
-    packagesToPack: '**/Microcharts.Droid.csproj'
-    packDirectory: '$(Build.ArtifactStagingDirectory)'
-    buildProperties: 'SymbolPackageFormat=snupkg'
-    nobuild: true
-    includesource: true
+    #command: 'pack'
+    projectFile: '**/Microcharts.Droid.csproj'
+    outputDirectory: '$(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
+    configuration: '$(BuildConfiguration)'
+    #buildProperties: 'SymbolPackageFormat=snupkg'
+    clean: true
 
 - task: PublishBuildArtifacts@1
   inputs:
