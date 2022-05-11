@@ -45,21 +45,21 @@ steps:
     projects: '**/Microcharts.Droid.csproj'
     restoreDirectory: '../../packages/'
 
-- task: NuGetCommand@2
-  displayName: "Nuget package"
-  inputs:
-      command: 'pack'
-      packagesToPack: '**/Microcharts.Core.nuspec'
-      #configuration: 'Release'
-      packDirectory: '$(Build.ArtifactStagingDirectory)'
-      buildProperties: 'SymbolPackageFormat=snupkg'
+# - task: NuGetCommand@2
+#   displayName: "Nuget package"
+#   inputs:
+#       command: 'pack'
+#       packagesToPack: '**/Microcharts.Core.nuspec'
+#       #configuration: 'Release'
+#       packDirectory: '$(Build.ArtifactStagingDirectory)'
+#       buildProperties: 'SymbolPackageFormat=snupkg'
 
-- task: DotNetCoreCLI@2
-  displayName: "Build BD.Common.Mobile"
-  inputs:
-    command: 'build'
-    projects: '**/Microcharts.Droid.csproj'
-    arguments: '--configuration Release'
+# - task: DotNetCoreCLI@2
+#   displayName: "Build BD.Common.Mobile"
+#   inputs:
+#     command: 'build'
+#     projects: '**/Microcharts.Droid.csproj'
+#     arguments: '--configuration Release'
 
 - task: XamarinAndroid@1
   displayName: 'Build Core NuGet package'
