@@ -58,9 +58,9 @@ steps:
 - task: MSBuild@1
   displayName: "Restore Microcharts.Droid packages"
   inputs:
-    command: 'restore'
-    projects: 'Sources/Microcharts.Droid/Microcharts.Droid.csproj'
-    restoreDirectory: '../../packages/'
+    msbuildArguments: /t:restore
+    solution: 'Sources/Microcharts.Droid/Microcharts.Droid.csproj'
+    configuration: 'Release'
 
 # - task: NuGetCommand@2
 #   inputs:
