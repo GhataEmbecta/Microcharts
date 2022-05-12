@@ -68,8 +68,8 @@ steps:
   displayName: "Restore nuget packages"
   inputs:
     command: 'restore'
-    restoreSolution: 'Microcharts.sln'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
+    restoreSolution: 'Microcharts.Droid.csproj'
+    noCache: true
     restoreDirectory: '../../packages/'
 
 # - task: DotNetCoreCLI@2
