@@ -59,7 +59,7 @@ steps:
   displayName: "Restore Microcharts.Droid packages"
   inputs:
     msbuildArguments: /t:restore
-    solution: 'Sources/Microcharts.Droid/Microcharts.Droid.csproj'
+    solution: 'Microcharts.sln'
     configuration: 'Release'
 
 # - task: NuGetCommand@2
