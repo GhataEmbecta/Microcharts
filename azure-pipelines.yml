@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-10.15'
+  vmImage: 'macos-latest'
   demands:
   - xcode
   - Xamarin.iOS
