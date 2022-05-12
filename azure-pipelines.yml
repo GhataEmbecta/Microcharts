@@ -80,15 +80,15 @@ steps:
 
 
 
-# - task: XamarinAndroid@1
-#   displayName: 'Build Microchart.Droid packages'
-#   inputs:
-#     projectFile: '**/Microcharts.Droid.csproj'
-#     configuration: 'Release'
-#     createAppPackage: false
-#     jdkOption: 'JDKVersion'
-#     jdkVersionOption: '1.8'
-#     msbuildVersionOption: '15.0'
+- task: XamarinAndroid@1
+  displayName: 'Build Microchart.Droid packages'
+  inputs:
+    projectFile: '**/Microcharts.Droid.csproj'
+    configuration: 'Release'
+    createAppPackage: false
+    jdkOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    msbuildVersionOption: '15.0'
 
 
 
