@@ -79,13 +79,12 @@ steps:
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
-# - task: NuGetCommand@2
-#   displayName: "Restore BD.Common.Droid packages"
-#   inputs:
-#     command: 'restore'
-#     restoreSolution: 'BD.Common.Droid/packages.config'
-#     feedsToUse: 'select'
-#     restoreDirectory: '../../packages/'
+- task: NuGetCommand@2
+  displayName: "Restore BD.Common.Droid packages"
+  inputs:
+    command: 'restore'
+    restoreSolution: 'Microcharts.sln'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
 
 - task: XamarinAndroid@1
   displayName: 'Build Microchart.Droid packages'
