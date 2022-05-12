@@ -70,7 +70,7 @@ steps:
   displayName: "Restore msbuild packages"
   inputs:
     msbuildArguments: /t:restore
-    solution: 'Microcharts.sln'
+    solution: '**/Microcharts.sln'
     configuration: 'Release'
     restoreNugetPackages: true
 
