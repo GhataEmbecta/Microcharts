@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macos-10.15'
   demands:
   - xcode
   - Xamarin.iOS
@@ -55,7 +55,7 @@ steps:
     version: 6.0.x
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-- task: NuGetCommand@2
+- task: MSBuild@1
   displayName: "Restore Microcharts.Droid packages"
   inputs:
     command: 'restore'
