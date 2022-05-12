@@ -91,13 +91,13 @@ steps:
     jdkVersionOption: '1.8'
     msbuildVersionOption: '15.0'
 
-# - task: NuGetCommand@2
-#   displayName: "Create Microcharts.Droid Nuget package"
-#   inputs:
-#     command: 'pack'
-#     packagesToPack: '**/Microcharts.Core.nuspec'
-#     configuration: 'Release'
-#     versioningScheme: 'off'
+- task: NuGetCommand@2
+  displayName: "Create Microcharts.Droid Nuget package"
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/Microcharts.Core.nuspec'
+    configuration: 'Release'
+    versioningScheme: 'off'
 
 
 
