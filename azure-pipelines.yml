@@ -61,6 +61,7 @@ steps:
     msbuildArguments: /t:restore
     solution: 'Microcharts.sln'
     configuration: 'Release'
+    restoreNugetPackages: true
 
 # - task: NuGetCommand@2
 #   inputs:
@@ -78,7 +79,13 @@ steps:
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
-
+# - task: NuGetCommand@2
+#   displayName: "Restore BD.Common.Droid packages"
+#   inputs:
+#     command: 'restore'
+#     restoreSolution: 'BD.Common.Droid/packages.config'
+#     feedsToUse: 'select'
+#     restoreDirectory: '../../packages/'
 
 - task: XamarinAndroid@1
   displayName: 'Build Microchart.Droid packages'
