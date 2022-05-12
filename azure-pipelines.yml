@@ -73,11 +73,11 @@ steps:
 #     basePath: '/'
 #     buildProperties: 'version=$(GitVersion.MajorMinorPatch)-$(GitVersion.EscapedBranchName)-$(GitVersion.BuildMetaDataPadded)'
 
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: '**/Microcharts.Droid.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
+# - task: XamarinAndroid@1
+#   inputs:
+#     projectFile: '**/Microcharts.Droid.csproj'
+#     outputDirectory: '$(outputDirectory)'
+#     configuration: '$(buildConfiguration)'
 
 - task: NuGetCommand@2
   displayName: "Restore BD.Common.Droid packages"
@@ -87,12 +87,12 @@ steps:
     packDestination: '$(Build.ArtifactStagingDirectory)'
     restoreDirectory: '../../packages/'
 
-- task: DotNetCoreCLI@2
-  displayName: "Restore Microchart.Droid packages dot"
-  inputs:
-    command: 'restore'
-    projects: '**/Microcharts.Droid.csproj'
-    restoreDirectory: '../../packages/'
+# - task: DotNetCoreCLI@2
+#   displayName: "Restore Microchart.Droid packages dot"
+#   inputs:
+#     command: 'restore'
+#     projects: '**/Microcharts.Droid.csproj'
+#     restoreDirectory: '../../packages/'
 
 - task: XamarinAndroid@1
   displayName: 'Build Microchart.Droid packages'
