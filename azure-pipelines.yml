@@ -56,31 +56,16 @@ steps:
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: MSBuild@1
-  displayName: "Restore Microcharts.Droid packages"
+  displayName: "Restore msbuild packages"
   inputs:
     msbuildArguments: /t:restore
     solution: 'Microcharts.sln'
     configuration: 'Release'
     restoreNugetPackages: true
 
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'pack'
-#     packagesToPack: 'NuGet/Microcharts.Forms.nuspec'
-#     packDestination: '$(Build.ArtifactStagingDirectory)'
-#     configuration: 'Release'
-#     versioningScheme: 'off'
-#     basePath: '/'
-#     buildProperties: 'version=$(GitVersion.MajorMinorPatch)-$(GitVersion.EscapedBranchName)-$(GitVersion.BuildMetaDataPadded)'
-
-# - task: XamarinAndroid@1
-#   inputs:
-#     projectFile: '**/Microcharts.Droid.csproj'
-#     outputDirectory: '$(outputDirectory)'
-#     configuration: '$(buildConfiguration)'
 
 - task: NuGetCommand@2
-  displayName: "Restore BD.Common.Droid packages"
+  displayName: "Restore nuget packages"
   inputs:
     command: 'restore'
     restoreSolution: 'Microcharts.sln'
@@ -95,7 +80,7 @@ steps:
 #     restoreDirectory: '../../packages/'
 
 - task: XamarinAndroid@1
-  displayName: 'Build Microchart.Droid packages'
+  displayName: 'Build xamarin packages'
   inputs:
     projectFile: '**/Microcharts.Droid.csproj'
     configuration: 'Release'
@@ -104,13 +89,13 @@ steps:
     jdkVersionOption: '1.8'
     msbuildVersionOption: '15.0'
 
-- task: NuGetCommand@2
-  displayName: "Create Microcharts.Droid Nuget package"
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/Microcharts.Core.nuspec'
-    configuration: 'Release'
-    versioningScheme: 'off'
+# - task: NuGetCommand@2
+#   displayName: "Create Microcharts.Droid Nuget package"
+#   inputs:
+#     command: 'pack'
+#     packagesToPack: '**/Microcharts.Core.nuspec'
+#     configuration: 'Release'
+#     versioningScheme: 'off'
 
 
 
