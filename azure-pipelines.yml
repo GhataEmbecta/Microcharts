@@ -85,6 +85,7 @@ steps:
     command: 'restore'
     restoreSolution: 'Microcharts.sln'
     packDestination: '$(Build.ArtifactStagingDirectory)'
+    restoreDirectory: '../../packages/'
 
 - task: DotNetCoreCLI@2
   displayName: "Restore Microchart.Droid packages dot"
