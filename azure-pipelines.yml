@@ -55,26 +55,26 @@ steps:
     version: 6.0.x
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: "Restore Microcharts.Droid packages"
   inputs:
     command: 'restore'
     projects: 'Sources/Microcharts.Droid/Microcharts.Droid.csproj'
     restoreDirectory: '../../packages/'
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'NuGet/Microcharts.Forms.nuspec'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
-    configuration: 'Release'
-    versioningScheme: 'off'
-    basePath: '/'
-    buildProperties: 'version=$(GitVersion.MajorMinorPatch)-$(GitVersion.EscapedBranchName)-$(GitVersion.BuildMetaDataPadded)'
+# - task: NuGetCommand@2
+#   inputs:
+#     command: 'pack'
+#     packagesToPack: 'NuGet/Microcharts.Forms.nuspec'
+#     packDestination: '$(Build.ArtifactStagingDirectory)'
+#     configuration: 'Release'
+#     versioningScheme: 'off'
+#     basePath: '/'
+#     buildProperties: 'version=$(GitVersion.MajorMinorPatch)-$(GitVersion.EscapedBranchName)-$(GitVersion.BuildMetaDataPadded)'
 
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*droid*.csproj'
+    projectFile: '**/Microcharts.Droid.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
